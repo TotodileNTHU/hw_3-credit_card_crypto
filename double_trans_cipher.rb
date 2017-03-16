@@ -1,28 +1,19 @@
+# DoubleTranspositionCipher
 module DoubleTranspositionCipher
-  # TODO: FILL THIS IN!
   ## Suggested steps for double transposition cipher
   # 1. find number of rows/cols such that matrix is almost square
   # 2. break plaintext into evenly sized blocks
   # 3. sort rows in predictibly random way using key as seed
   # 4. sort columns of each row in predictibly random way
   # 5. return joined cyphertext
-  def self.encrypt(document, key)
-    document = document.to_s
-    width = Math.sqrt(document.length).ceil
-    height = (document.length.to_f / width).ceil
-    key_map_col = (0...width).to_a.shuffle(random:Random.new(key))
-    key_map_row = (0...height).to_a.shuffle(random:Random.new(key))
-    doc_array = document.scan(/.{1,#{width}}/)
-    last_row_length = doc_array[-1].length
-    if last_row_length != width
-      fill_dummy_size = width - last_row_length
-      after_filling = doc_array[-1].concat('~' * fill_dummy_size)
-      doc_array[-1] = after_filling
-    end
+  def self.get_filling(document, width)
+    remainder = document.length % width
+    document += ('~' * (width - remainder)) if remainder != 0
+    document
+  end
 
-    chs = doc_array.join.chars
+  def self.get_enc(chs, width, height, key_map_col, key_map_row)
     enc = Array.new(width * height)
-
     for i in 0...height
       for j in 0...width
         enc[i * width + j] = chs[key_map_row[i] * width + key_map_col[j]]
@@ -31,13 +22,18 @@ module DoubleTranspositionCipher
     enc.join
   end
 
-  def self.decrypt(ciphertext, key)
-    ciphertext = ciphertext.to_s
-    width = Math.sqrt(ciphertext.length).ceil
-    height = (ciphertext.length.to_f / width).ceil
-    chs = Array.new(width * height)
+  def self.encrypt(document, key)
+    document = document.to_s
+    width = Math.sqrt(document.length).ceil
+    height = (document.length.to_f / width).ceil
     key_map_col = (0...width).to_a.shuffle(random: Random.new(key))
     key_map_row = (0...height).to_a.shuffle(random: Random.new(key))
+    doc_with_filling = get_filling(document, width)
+    get_enc(doc_with_filling, width, height, key_map_col, key_map_row)
+  end
+
+  def self.get_dec(ciphertext, width, height, key_map_col, key_map_row)
+    chs = Array.new(width * height)
     for i in 0...height
       for j in 0...width
         c = ciphertext.chars[i * width + j]
@@ -46,6 +42,15 @@ module DoubleTranspositionCipher
       end
     end
     chs.join
+  end
+
+  def self.decrypt(ciphertext, key)
+    ciphertext = ciphertext.to_s
+    width = Math.sqrt(ciphertext.length).ceil
+    height = (ciphertext.length.to_f / width).ceil
+    key_map_col = (0...width).to_a.shuffle(random: Random.new(key))
+    key_map_row = (0...height).to_a.shuffle(random: Random.new(key))
+    get_dec(ciphertext, width, height, key_map_col, key_map_row)
   end
 end
 
