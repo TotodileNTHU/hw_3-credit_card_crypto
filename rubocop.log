@@ -1,0 +1,184 @@
+Inspecting 11 files
+WWW.WWW..CC
+
+Offenses:
+
+credit_card.rb:4:1: C: Missing top-level class documentation comment.
+class CreditCard
+^^^^^
+credit_card.rb:22:7: C: Use the new Ruby 1.9 hash syntax.
+      :number =>"number",
+      ^^^^^^^^^^
+credit_card.rb:22:15: C: Surrounding space missing for operator =>.
+      :number =>"number",
+              ^^
+credit_card.rb:22:17: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      :number =>"number",
+                ^^^^^^^^
+credit_card.rb:23:7: C: Use the new Ruby 1.9 hash syntax.
+      :expiration_date => "expiration_date",
+      ^^^^^^^^^^^^^^^^^^^
+credit_card.rb:23:27: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      :expiration_date => "expiration_date",
+                          ^^^^^^^^^^^^^^^^^
+credit_card.rb:24:7: C: Use the new Ruby 1.9 hash syntax.
+      :owner => "owner",
+      ^^^^^^^^^
+credit_card.rb:24:17: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      :owner => "owner",
+                ^^^^^^^
+credit_card.rb:25:7: C: Use the new Ruby 1.9 hash syntax.
+      :credit_network => "credit_network"
+      ^^^^^^^^^^^^^^^^^^
+credit_card.rb:25:26: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      :credit_network => "credit_network"
+                         ^^^^^^^^^^^^^^^^
+credit_card.rb:35:19: W: Unused method argument - card_s. If it's necessary, use _ or _card_s as an argument name to indicate that it won't be used. You can also write as from_s(*) if you want the method to accept any arguments but don't care about them.
+  def self.from_s(card_s)
+                  ^^^^^^
+substitution_cipher.rb:2:3: C: Missing top-level module documentation comment.
+  module Caesar
+  ^^^^^^
+substitution_cipher.rb:15:7: W: Useless assignment to variable - encript_doc.
+      encript_doc = encript_doc.join
+      ^^^^^^^^^^^
+substitution_cipher.rb:28:7: W: Useless assignment to variable - decript_doc.
+      decript_doc = decript_doc.join
+      ^^^^^^^^^^^
+substitution_cipher.rb:32:3: C: Missing top-level module documentation comment.
+  module Permutation
+  ^^^^^^
+substitution_cipher.rb:39:1: C: Extra empty line detected at method body beginning.
+substitution_cipher.rb:42:45: C: Space missing after colon.
+      key_map = (0..127).to_a.shuffle(random:Random.new(key))
+                                            ^
+substitution_cipher.rb:45:9: C: Missing space after #.
+        #map this character
+        ^^^^^^^^^^^^^^^^^^^
+substitution_cipher.rb:48:7: W: Useless assignment to variable - encript_doc.
+      encript_doc = encript_doc.join
+      ^^^^^^^^^^^
+substitution_cipher.rb:58:45: C: Space missing after colon.
+      key_map = (0..127).to_a.shuffle(random:Random.new(key))
+                                            ^
+substitution_cipher.rb:60:9: C: Don't use parentheses around a method call.
+        (key_map.index(e.ord)).chr
+        ^^^^^^^^^^^^^^^^^^^^^^
+substitution_cipher.rb:62:7: W: Useless assignment to variable - decript_doc.
+      decript_doc = decript_doc.join
+      ^^^^^^^^^^^
+substitution_cipher.rb:63:1: C: Extra empty line detected at method body end.
+double_trans_cipher.rb:1:1: C: Missing top-level module documentation comment.
+module DoubleTranspositionCipher
+^^^^^^
+double_trans_cipher.rb:2:20: W: Unused method argument - document. If it's necessary, use _ or _document as an argument name to indicate that it won't be used. You can also write as encrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.encrypt(document, key)
+                   ^^^^^^^^
+double_trans_cipher.rb:2:30: W: Unused method argument - key. If it's necessary, use _ or _key as an argument name to indicate that it won't be used. You can also write as encrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.encrypt(document, key)
+                             ^^^
+double_trans_cipher.rb:12:20: W: Unused method argument - ciphertext. If it's necessary, use _ or _ciphertext as an argument name to indicate that it won't be used. You can also write as decrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.decrypt(ciphertext, key)
+                   ^^^^^^^^^^
+double_trans_cipher.rb:12:32: W: Unused method argument - key. If it's necessary, use _ or _key as an argument name to indicate that it won't be used. You can also write as decrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.decrypt(ciphertext, key)
+                               ^^^
+luhn_validator.rb:1:1: C: Missing top-level module documentation comment.
+module LuhnValidator
+^^^^^^
+luhn_validator.rb:6:3: C: Assignment Branch Condition size for validate_checksum is too high. [19.44/15]
+  def validate_checksum
+  ^^^
+luhn_validator.rb:6:3: C: Method has too many lines. [16/10]
+  def validate_checksum ...
+  ^^^^^^^^^^^^^^^^^^^^^
+luhn_validator.rb:13:37: C: Do not use parentheses for method calls with no arguments.
+      index_from_right = nums_a.size() - i
+                                    ^
+luhn_validator.rb:16:10: C: Replace with Integer#even?.
+      if index_from_right%2==0
+         ^^^^^^^^^^^^^^^^^^^^^
+luhn_validator.rb:16:10: C: Use (index_from_right%2).zero? instead of index_from_right%2==0.
+      if index_from_right%2==0
+         ^^^^^^^^^^^^^^^^^^^^^
+luhn_validator.rb:16:26: C: Surrounding space missing for operator %.
+      if index_from_right%2==0
+                         ^
+luhn_validator.rb:16:28: C: Surrounding space missing for operator ==.
+      if index_from_right%2==0
+                           ^^
+luhn_validator.rb:18:9: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+        if increment >9
+        ^^
+luhn_validator.rb:18:22: C: Surrounding space missing for operator >.
+        if increment >9
+                     ^
+luhn_validator.rb:24:11: C: Operator += should be surrounded by a single space.
+      sum +=  increment
+          ^^
+luhn_validator.rb:24:13: C: Unnecessary spacing detected.
+      sum +=  increment
+            ^
+luhn_validator.rb:27:5: W: Useless assignment to variable - judge.
+    judge = sum%10==0? true:false
+    ^^^^^
+luhn_validator.rb:27:13: C: Use (sum%10).zero? instead of sum%10==0.
+    judge = sum%10==0? true:false
+            ^^^^^^^^^
+luhn_validator.rb:27:16: C: Surrounding space missing for operator %.
+    judge = sum%10==0? true:false
+               ^
+luhn_validator.rb:27:19: C: Surrounding space missing for operator ==.
+    judge = sum%10==0? true:false
+                  ^^
+luhn_validator.rb:27:22: C: Surrounding space missing for operator ?.
+    judge = sum%10==0? true:false
+                     ^
+luhn_validator.rb:27:28: C: Surrounding space missing for operator :.
+    judge = sum%10==0? true:false
+                           ^
+luhn_validator.rb:29:1: C: Extra empty line detected at module body end.
+aes_cipher.rb:3:1: C: Missing top-level module documentation comment.
+module AesCipher
+^^^^^^
+aes_cipher.rb:4:20: W: Unused method argument - document. If it's necessary, use _ or _document as an argument name to indicate that it won't be used. You can also write as encrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.encrypt(document, key)
+                   ^^^^^^^^
+aes_cipher.rb:4:30: W: Unused method argument - key. If it's necessary, use _ or _key as an argument name to indicate that it won't be used. You can also write as encrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.encrypt(document, key)
+                             ^^^
+aes_cipher.rb:12:20: W: Unused method argument - aes_crypt. If it's necessary, use _ or _aes_crypt as an argument name to indicate that it won't be used. You can also write as decrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.decrypt(aes_crypt, key)
+                   ^^^^^^^^^
+aes_cipher.rb:12:31: W: Unused method argument - key. If it's necessary, use _ or _key as an argument name to indicate that it won't be used. You can also write as decrypt(*) if you want the method to accept any arguments but don't care about them.
+  def self.decrypt(aes_crypt, key)
+                              ^^^
+spec/hash_spec.rb:6:81: C: Line is too long. [83/80]
+  { num: '4916603231464963', exp: 'Mar-30-2020', name: 'Soumya Ray', net: 'Visa' },
+                                                                                ^^^
+spec/hash_spec.rb:7:81: C: Line is too long. [83/80]
+  { num: '6011580789725897', exp: 'Sep-30-2020', name: 'Nick Danks', net: 'Visa' },
+                                                                                ^^^
+spec/hash_spec.rb:8:81: C: Line is too long. [86/80]
+  { num: '5423661657234057', exp: 'Feb-30-2020', name: 'Lee Chen', net: 'Mastercard' }
+                                                                                ^^^^^^
+spec/hash_spec.rb:11:1: W: Useless assignment to variable - cards.
+cards = card_details.map { |c| CreditCard.new(c[:num], c[:exp], c[:name], c[:net]) }
+^^^^^
+spec/hash_spec.rb:11:81: C: Line is too long. [84/80]
+cards = card_details.map { |c| CreditCard.new(c[:num], c[:exp], c[:name], c[:net]) }
+                                                                                ^^^^
+spec/crypto_spec.rb:5:1: C: Block has too many lines. [28/25]
+describe 'Test card info encryption' do ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/crypto_spec.rb:7:81: C: Line is too long. [81/80]
+    @cc = CreditCard.new('4916603231464963', 'Mar-30-2020', 'Soumya Ray', 'Visa')
+                                                                                ^
+bench/luhn_bench.rb:8:18: C: Use Array.new with a block instead of .times.map.
+  card_numbers = n.times.map do ...
+                 ^^^^^^^^^^^^^^
+bench/luhn_bench.rb:9:5: C: Use Array.new with a block instead of .times.map.
+    card_number_length.times.map { Random.rand(10).to_s }.join
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+11 files inspected, 61 offenses detected
