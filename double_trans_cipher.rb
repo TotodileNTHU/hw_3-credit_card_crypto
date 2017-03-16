@@ -17,6 +17,7 @@ module DoubleTranspositionCipher
     #     blocks = ["I ha", "ve a", "n ap", "ple"]
     blocks = document.to_s.scan(/.{1,#{cols}}/)
 
+    # key = [3, 1, 2]
     # sorted_blocks = ["n ap", "I ha", "ve a"]
     # if key.length < blocks.length 
     # need to be add the ones which are left in the block
