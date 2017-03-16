@@ -21,7 +21,7 @@ module LuhnValidator
       else
         increment = nums_a[i]
       end
-      sum + = increment
+      sum += increment
     end
 
     judge = (sum%10).zero? true:false
