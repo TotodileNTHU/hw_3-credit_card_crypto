@@ -25,7 +25,7 @@ module SubstitutionCipher
       decript_doc = document.split('').map do |e|
         (e.ord - key).chr
       end
-      decript_doc = decript_doc.join
+      decript_doc.join
     end
   end
 
@@ -58,7 +58,7 @@ module SubstitutionCipher
       decript_doc = document.split('').map do |e|
         key_map.index(e.ord).chr
       end
-      decript_doc = decript_doc.join
+      decript_doc.join
     end
   end
 

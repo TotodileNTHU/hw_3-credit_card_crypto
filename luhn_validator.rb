@@ -13,18 +13,18 @@ module LuhnValidator
       index_from_right = nums_a.size() - i
       increment = 0
 
-      if index_from_right%2==0
+      if index_from_right.even?
         increment = nums_a[i] * 2
-        if increment >9
+        if increment > 9
           increment -= 9
         end
       else
         increment = nums_a[i]
       end
-      sum +=  increment
+      sum + = increment
     end
 
-    judge = sum%10==0? true:false
+    judge = (sum%10).zero? true:false
   end
 
 end
