@@ -37,7 +37,6 @@ describe 'Test card info encryption' do
     end
   end
 
-
   # TODO: Add tests for double transposition and modern symmetric key ciphers
 
   describe 'Using Double Transposition Cipher' do
@@ -53,7 +52,6 @@ describe 'Test card info encryption' do
       dec.must_equal @cc.to_s
     end
   end
-
 
   #       Can you DRY out the tests using metaprogramming? (see lecture slide)
 end
