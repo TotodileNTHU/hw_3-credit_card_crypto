@@ -1,6 +1,7 @@
 require_relative '../credit_card'
 require_relative '../substitution_cipher'
 require_relative '../double_trans_cipher.rb'
+require_relative '../aes_cipher.rb'
 require 'minitest/autorun'
 
 describe 'Test card info encryption' do
@@ -53,6 +54,7 @@ describe 'Test card info encryption' do
       dec.must_equal @cc.to_s
     end
   end
+
 
   #       Can you DRY out the tests using metaprogramming? (see lecture slide)
 end
