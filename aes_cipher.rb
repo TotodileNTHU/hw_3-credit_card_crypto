@@ -7,6 +7,7 @@ module AesCipher
     #       and ciphertext is the output of AES encryption
     # NOTE: Use base64 for ciphertext so that it is screen printable
     #       Use cipher block chaining mode only!
+    
   end
 
   def self.decrypt(aes_crypt, key)
