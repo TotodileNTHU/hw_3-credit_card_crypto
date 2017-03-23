@@ -2,6 +2,7 @@ require_relative './luhn_validator.rb'
 require 'rbnacl/libsodium'
 require 'json'
 
+# HW3
 class CreditCard
   # TODO: mixin the LuhnValidator using an 'include' statement
   include LuhnValidator
@@ -20,10 +21,10 @@ class CreditCard
   def to_json
     {
       # TODO: setup the hash with all instance vairables to serialize into json
-      :number => number,
-      :expiration_date => expiration_date,
-      :owner => owner,
-      :credit_network => credit_network
+      number: number,
+      expiration_date: expiration_date,
+      owner: owner,
+      credit_network: credit_network
     }.to_json
   end
 
@@ -35,6 +36,8 @@ class CreditCard
   # return a new CreditCard object given a serialized (JSON) representation
   def self.from_s(card_s)
     # TODO: deserializing a CreditCard object
+    h = JSON.parse(card_s)
+    new(h['number'], h['expiration_date'], h['owner'], h['credit_network'])
   end
 
   # return a hash of the serialized credit card object
@@ -43,11 +46,12 @@ class CreditCard
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
     #   - Credit cards with identical information should produce the same hash
-    {:number => number,
-     :expiration_date => expiration_date,
-     :owner => owner,
-     :credit_network => credit_network
-   }.hash
+    {
+      number: number,
+      expiration_date: expiration_date,
+      owner: owner,
+      credit_network: credit_network
+    }.hash
   end
 
   # return a cryptographically secure hash
@@ -55,10 +59,11 @@ class CreditCard
     # TODO: implement this method
     #   - Use sha256 from RbNacl to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
-    content = {:number => number,
-     :expiration_date => expiration_date,
-     :owner => owner,
-     :credit_network => credit_network
+    content = {
+      number: number,
+      expiration_date: expiration_date,
+      owner: owner,
+      credit_network: credit_network
     }.to_s
     RbNaCl::Hash.sha256(content)
   end
