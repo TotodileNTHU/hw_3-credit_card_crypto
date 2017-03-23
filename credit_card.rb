@@ -60,6 +60,6 @@ class CreditCard
      :owner => owner,
      :credit_network => credit_network
     }.to_s
-    RbNacl::Hash.sha256(content)
+    RbNaCl::Hash.sha256(content)
   end
 end
